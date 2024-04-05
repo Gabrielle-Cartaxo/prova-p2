@@ -11,7 +11,8 @@ pings = [{'resposta': 'Olá, mundo!', 'time': '05/04/2024 15:45:51'}]
 @app.route('/ping', methods=['POST', 'GET'])
 def index():
     mensagem = str(request.form.get("mensagem"))
-    pings.append({'resposta': mensagem, 'data-e-hora': time.strftime("%d/%m/%Y %H:%M:%S")})
+    frase = {'resposta': mensagem, 'data-e-hora': time.strftime("%d/%m/%Y %H:%M:%S")}
+    pings.append(frase)
     print(pings)
     return render_template('ping.html')
 
