@@ -1,0 +1,17 @@
+<!--Manda mensagem para o pong-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
+    <title>Ping</title>
+</head>
+<body>
+    <h1>Mandar mensagem</h1>
+    <form hx-post="/ping" hx-trigger="submit">
+        <input type="text" name="mensagem" id="mensagem" placeholder="Digite a mensagem">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
