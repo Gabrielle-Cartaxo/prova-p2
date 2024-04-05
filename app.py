@@ -8,7 +8,7 @@ CORS(app)
 pings = [{'resposta': 'Olá, mundo!', 'time': '05/04/2024 15:45:51'}]
 
 # Rota para o htmx de ping
-@app.route('/ping')
+@app.route('/ping', methods=['POST', 'GET'])
 def index():
     mensagem = str(request.form.get("mensagem"))
     pings.append({'resposta': mensagem, 'data-e-hora': time.strftime("%d/%m/%Y %H:%M:%S")})
@@ -16,7 +16,7 @@ def index():
     return render_template('ping.html')
 
 # Rota para o htmx de pong
-@app.route('/pong')
+@app.route('/pong', methods=['GET'])
 def pong():
     print(pings)
     return render_template('pong.html', pings=pings)
